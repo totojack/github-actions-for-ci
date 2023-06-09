@@ -21,10 +21,10 @@ jobs:
       run: |
         ./update_version.sh "${{ github.event.inputs.version }}"
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Updated version to ${{github.repository}}@${{ github.event.inputs.message }}
-        commit_author: ${{github.actor}} <noreply@github.com>
+    # - uses: stefanzweifel/git-auto-commit-action@v4
+    #   with:
+    #     commit_message: Updated version to ${{github.repository}}@${{ github.event.inputs.message }}
+    #     commit_author: ${{github.actor}} <noreply@github.com>
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5.0.1
