@@ -1,5 +1,13 @@
 name: Update version CI
 
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: string
+        required: true
+        description: version number
+
 jobs:
 
   deploy:
