@@ -15,6 +15,8 @@ jobs:
     timeout-minutes: 3
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
     - name: Update version
       run: |
         ./update_version.sh "${{ github.event.inputs.version }}"
@@ -32,8 +34,5 @@ jobs:
         title: "Update ${{github.repository}} for '${{github.event.head_commit.message}}'"
         body: |
           This pull request updates ${{github.repository}} version to ${{github.repository}}@${{ github.event.inputs.message }}.
-          Original commit message: "${{github.event.head_commit.message}}"
-          Actor: @${{github.actor}}
-        author: ${{github.actor}} <noreply@github.com>
-        delete-branch: true
-        branch: upgrade/${{github.repository}}
+        branch: production-promotion
+        base: main
