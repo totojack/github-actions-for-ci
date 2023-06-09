@@ -10,14 +10,13 @@ on:
 
 jobs:
 
-  deploy:
+  update_version:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
     - uses: actions/checkout@v3
     - name: Update version
       run: |
-        ls -l
         ./update_version.sh "${{github.sha}}"
 
     - uses: stefanzweifel/git-auto-commit-action@v4
