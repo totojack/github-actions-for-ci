@@ -18,7 +18,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         ls -l
-        ls -l ${{ github.action_path }}
+        ls -l ${{github.action_path}}
         ./update_version.sh "${{github.sha}}"
 
     - uses: stefanzweifel/git-auto-commit-action@v4
