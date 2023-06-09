@@ -15,9 +15,8 @@ jobs:
     timeout-minutes: 3
     steps:
     - name: Update version
-      run: |        
-        env
-        cd ${RUNNER_WORKSPACE}
+      run: |
+        cd ${RUNNER_WORKSPACE}/github-actions-for-ci
         ls -l
         ./update_version.sh "${{github.sha}}"
 
