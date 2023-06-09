@@ -15,10 +15,10 @@ jobs:
     timeout-minutes: 3
     steps:
     - name: Update version
-      run: |
-        cd $GITHUB_WORKSPACE
-        ls -l
+      run: |        
+        ls -l ${GITHUB_WORKSPACE}
         ls -l ${{github.action_path}}
+        ls -l ${RUNNER_WORKSPACE}
         ./update_version.sh "${{github.sha}}"
 
     - uses: stefanzweifel/git-auto-commit-action@v4
