@@ -21,18 +21,13 @@ jobs:
       run: |
         ./update_version.sh "${{ github.event.inputs.version }}"
 
-    # - uses: stefanzweifel/git-auto-commit-action@v4
-    #   with:
-    #     commit_message: Updated version to ${{github.repository}}@${{ github.event.inputs.message }}
-    #     commit_author: ${{github.actor}} <noreply@github.com>
-
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5.0.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: "Updated ${{github.repository}} version to ${{github.repository}}@$${{ github.event.inputs.message }}"
+        commit-message: "Updated ${{github.repository}} version to "${{ github.event.inputs.version }}"
         title: "Update ${{github.repository}} for '${{github.event.head_commit.message}}'"
         body: |
-          This pull request updates ${{github.repository}} version to ${{github.repository}}@${{ github.event.inputs.message }}.
+          This pull request updates ${{github.repository}} version to "${{ github.event.inputs.version }}".
         branch: production-promotion
         base: main
