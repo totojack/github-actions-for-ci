@@ -24,9 +24,9 @@ jobs:
       uses: peter-evans/create-pull-request@v5.0.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: "Updated ${{github.repository}} version to "${{ github.event.inputs.version }}"
+        commit-message: "Updated ${{github.repository}} version to '${{ github.event.inputs.version }}'"
         title: "Update ${{github.repository}} for '${{github.event.head_commit.message}}'"
         body: |
-          This pull request updates ${{github.repository}} version to "${{ github.event.inputs.version }}".
+          This pull request updates ${{github.repository}} version to '${{ github.event.inputs.version }}'.
         branch: production-promotion
         base: main
