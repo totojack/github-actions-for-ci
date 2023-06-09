@@ -15,7 +15,9 @@ jobs:
     timeout-minutes: 3
     steps:
     - name: Update version
-      run: ./update_version.sh "${{github.sha}}"
+      run: |
+        cd $GITHUB_WORKSPACE
+        ./update_version.sh "${{github.sha}}"
 
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
