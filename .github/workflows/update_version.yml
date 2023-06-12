@@ -7,6 +7,20 @@ on:
         type: string
         required: true
         description: version number
+      env:
+        description: 'Environment to update'
+        type: choice
+        required: true
+        options:
+          - test
+          - prod
+      stack:
+        description: 'Stack to update'
+        type: choice
+        required: true
+        options:
+          - stack1
+          - stack2
 
 jobs:
 
